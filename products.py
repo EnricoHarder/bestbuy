@@ -35,10 +35,10 @@ class Product:
     def buy(self, quantity) -> float:
         if quantity <= 0:
             raise ValueError("Kaufmenge muss größer als 0 sein.")
-        if quantity > self.quantity:
-            raise ValueError("Nicht genug Lagerbestand.")
         if not self.active:
             raise Exception("Produkt ist nicht aktiv.")
+        if quantity > self.quantity:
+            raise ValueError("Nicht genug Lagerbestand.")
 
         self.set_quantity(self.quantity - quantity)
         return self.price * quantity

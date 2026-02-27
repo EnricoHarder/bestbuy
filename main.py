@@ -2,9 +2,9 @@ import products
 import store
 
 
-def make_order(best_buy):
+def make_order(current_store):
     """Prompt the user to select products and quantities, then place the order."""
-    all_products = best_buy.get_all_products()
+    all_products = current_store.get_all_products()
     print()
     for i, product in enumerate(all_products, 1):
         print(f"{i}. {product}")
@@ -31,13 +31,13 @@ def make_order(best_buy):
 
     if shopping_list:
         try:
-            total = best_buy.order(shopping_list)
+            total = current_store.order(shopping_list)
             print(f"\nOrder made! Total payment: ${total}")
-        except (ValueError, Exception) as err:
+        except ValueError as err:
             print(f"Error while making order: {err}")
 
 
-def start(best_buy):
+def start(current_store):
     """Display the store menu and handle user input in a loop."""
     while True:
         print("\n   Store Menu")
@@ -51,12 +51,12 @@ def start(best_buy):
 
         if choice == "1":
             print()
-            for i, product in enumerate(best_buy.get_all_products(), 1):
+            for i, product in enumerate(current_store.get_all_products(), 1):
                 print(f"{i}. {product}")
         elif choice == "2":
-            print(f"\nTotal of {best_buy.get_total_quantity()} items in store.")
+            print(f"\nTotal of {current_store.get_total_quantity()} items in store.")
         elif choice == "3":
-            make_order(best_buy)
+            make_order(current_store)
         elif choice == "4":
             print("Goodbye!")
             break

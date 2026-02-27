@@ -2,7 +2,7 @@ class Product:
     """Represents a product available in the store."""
 
     def __init__(self, name, price, quantity):
-        """Initialize a product with name, price and quantity. Raises ValueError for invalid input."""
+        """Initialize a product. Raises ValueError for invalid input."""
         if not name:
             raise ValueError("Name darf nicht leer sein.")
         if price < 0:

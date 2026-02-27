@@ -21,7 +21,8 @@ class Store:
         """Return all active products in the store."""
         return [p for p in self.products if p.is_active()]
 
-    def order(self, shopping_list) -> float:
+    @staticmethod
+    def order(shopping_list) -> float:
         """Process a list of (product, quantity) tuples and return the total price."""
         total = 0.0
         for product, quantity in shopping_list:

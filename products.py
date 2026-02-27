@@ -42,3 +42,10 @@ class Product:
 
         self.set_quantity(self.quantity - quantity)
         return self.price * quantity
+
+    # print object representation in lists!
+    def __repr__(self) -> str:
+        return f"Product(name='{self.name}', price={self.price}, quantity={self.quantity})"
+
+    def __str__(self):
+        return f"{self.name}, Price: {self.price}, Quantity: {self.quantity}" + (" (Active)" if self.active else " (Inactive)")
